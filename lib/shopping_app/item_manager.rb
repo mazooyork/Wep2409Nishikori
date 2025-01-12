@@ -1,4 +1,5 @@
 # モジュールの役割について確認したい場合は[https://diver.diveintocode.jp/curriculums/2360]のテキストを参考にしてください。
+require_relative "ownable"
 require "kosi"
 require_relative "item"
 
@@ -13,6 +14,7 @@ module ItemManager
     return if items.nil? || items.size < quantity
     items.slice(0, quantity)
   end
+
 
   def items_list # 自身の所有するItemインスタンスの在庫状況を、["番号", "商品名", "金額", "数量"]という列でテーブル形式にして出力します。
     kosi = Kosi::Table.new({header: %w{商品番号 商品名 金額 数量}}) # Gemgileに"kosi"のURLを記載
